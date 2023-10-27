@@ -170,9 +170,11 @@ proxy-groups:
 
   - {name: 🎮 国区游戏, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   - {name: 🗽 Google 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: 🤖 人工智能, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
@@ -244,6 +246,13 @@ rule-providers:
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
+  openai:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/openai.yaml"
+    path: ./ruleset/openai.yaml
+    interval: 86400
+
   networktest:
     type: http
     behavior: classical
@@ -300,6 +309,7 @@ rules:
   - RULE-SET,apple-cn,🍎 Apple 中国
   - RULE-SET,google-cn,🗽 Google 中国
   - RULE-SET,games-cn,🎮 国区游戏
+  - RULE-SET,openai,🤖 人工智能
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
